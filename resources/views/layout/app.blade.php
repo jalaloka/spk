@@ -20,6 +20,8 @@
     <link href="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/css/app.min.css" rel="stylesheet"
         type="text/css" />
 
+    @stack('style')
+
 </head>
 
 <body data-topbar="dark" data-layout="horizontal">
@@ -39,6 +41,12 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="index.html">
                                     <i class="mdi mdi-storefront mr-2"></i>Dashboard
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('daftar-tenaga-honor') }}">
+                                    <i class="mdi mdi-flip-horizontal mr-2"></i>Daftar Tenaga honor
                                 </a>
                             </li>
 
@@ -229,7 +237,7 @@
                                     </div>
                                 </div>
                             </li> --}}
-                            <li class="nav-item dropdown">
+                            {{-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-layout"
                                     role="button" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
@@ -240,7 +248,7 @@
                                     <a href="layouts-boxed-width.html" class="dropdown-item">Boxed width</a>
                                     <a href="layouts-colored-header.html" class="dropdown-item">Colored Header</a>
                                 </div>
-                            </li>
+                            </li> --}}
 
                         </ul>
                     </div>
@@ -626,7 +634,7 @@
     <script src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/node-waves/waves.min.js"></script>
 
     <script src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/js/app.js"></script>
-
+@stack('scripts')
 </body>
 
 </html>

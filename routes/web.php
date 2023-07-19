@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DaftarTenagaHonorController;
 use App\Http\Controllers\PenggunaController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::get('/pengguna', [PenggunaController::class, 'index']);
+Route::get('/daftar-tenaga-honor', [DaftarTenagaHonorController::class, 'index']);
