@@ -1,65 +1,55 @@
 @extends('layout.app')
 
 @section('content')
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
 
-                    <h4 class="header-title">Data Tenaga Honorer</h4>
-                    <a href="{{ url('daftar-tenaga-honor/create') }}" class="float-right btn btn-dark"> <i
-                            class="fas fa-plus"></i> Tambah Data</a>
+                <h4 class="header-title">Data Kriteria Tenaga Honorer</h4>
+                <a href="{{ url('kriteria/create') }}" class="float-right btn btn-dark"> <i
+                        class="fas fa-plus"></i> Tambah Data</a>
 
-                    {{-- <p class="card-title-desc">The Buttons extension for DataTables
-                        provides a common set of options, API methods and styling to display
-                        buttons on a page that will interact with a DataTable. The core library
-                        provides the based framework upon which plug-ins can built.
-                    </p> --}}
+                {{-- <p class="card-title-desc">The Buttons extension for DataTables
+                    provides a common set of options, API methods and styling to display
+                    buttons on a page that will interact with a DataTable. The core library
+                    provides the based framework upon which plug-ins can built.
+                </p> --}}
 
-                    <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
-                        style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                        <thead>
+                <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
+                    style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Bobot</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody>
+                        @php
+                            $no = 1;
+                        @endphp
+                        @foreach ($kriteria as $item)
                             <tr>
-                                <th>No</th>
-                                <th>Nik</th>
-                                <th>Nama</th>
-                                <th>Agama</th>
-                                <th>Jenis Kelamin</th>
-                                <th>Tempat Lahir</th>
-                                <th>Tanggal Lahir</th>
-                                <th>Alamat</th>
-                                <th>Pendidikan</th>
+                                <td width="1"> {{ $no++ }}</td>
+                                <td>{{ $item->nama }}</td>
+                                <td>{{ $item->bobot }}</td>
+                                <td></td>
+                                {{-- <td>{{ $item->agama }}</td> --}}
                             </tr>
-                        </thead>
+                        @endforeach
 
-
-                        <tbody>
-                            @php
-                                $no = 1;
-                            @endphp
-                            @foreach ($pegawai as $item)
-                                <tr>
-                                    <td width="1">{{ $no++ }}</td>
-                                    <td>{{ $item->nik }}</td>
-                                    <td>{{ $item->nama }}</td>
-                                    <td>{{ $item->agama }}</td>
-                                    <td>{{ $item->jenis_kelamin }}</td>
-                                    <td>{{ $item->tempat_lahir }}</td>
-                                    <td>{{ $item->tanggal_lahir }}</td>
-                                    <td>{{ $item->alamat }}</td>
-                                    <td>{{ $item->pendidikan }}</td>
-                                </tr>
-                            @endforeach
-
-                        </tbody>
-                    </table>
-                </div>
+                    </tbody>
+                </table>
             </div>
-        </div> <!-- end col -->
-    </div> <!-- end row -->
+        </div>
+    </div> <!-- end col -->
+</div>
+
 @endsection
-
-
 @push('style')
     <!-- DataTables -->
     <link
@@ -74,7 +64,7 @@
         href="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css"
         rel="stylesheet" type="text/css" />
 @endpush
-
+<div class="rightbar-overlay"></div>
 @push('scripts')
     <!-- Required datatable js -->
     <script src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net/js/jquery.dataTables.min.js">

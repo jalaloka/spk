@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Starter Page | Apaxy - Responsive Bootstrap 4 Admin Dashboard</title>
+    <title>SPK | Dinas Pendidikan KKU</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
@@ -46,10 +46,19 @@
 
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('daftar-tenaga-honor') }}">
-                                    <i class="mdi mdi-flip-horizontal mr-2"></i>Daftar Tenaga honor
+                                    <i class="mdi mdi-account-box-multiple"></i>Daftar Tenaga honor
                                 </a>
                             </li>
-
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('kriteria') }}">
+                                    <i class="mdi mdi-book"></i>Kriteria
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('subkriteria') }}">
+                                    <i class="mdi mdi-book-plus"></i>Sub Kriteria
+                                </a>
+                            </li>
                             {{-- <li class="nav-item dropdown mega-dropdown">
                                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

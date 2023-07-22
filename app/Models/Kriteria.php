@@ -1,13 +1,12 @@
 <?php
 
 namespace App\Models;
-use Illuminate\Database\Eloquent\Model as BaseModel;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class Model extends BaseModel
+class Kriteria extends Model
 {
-
     protected $KeyType = 'string';
     public  $incrementing = false;
 
@@ -18,7 +17,6 @@ class Model extends BaseModel
             $item->id = (string)Str::orderedUuid();
         });
     }
-//        });
-//     }
 
+    protected $table = 'kriteria';
 }
