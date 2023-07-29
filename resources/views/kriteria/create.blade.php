@@ -13,7 +13,13 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="" class="control-label">Nama</label>
+                    <label for="" class="control-label">Code</label>
+                    <input type="text" name="kode" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="" class="control-label">Nama Kriteria</label>
                     <input type="text" name="nama" class="form-control">
                 </div>
             </div>

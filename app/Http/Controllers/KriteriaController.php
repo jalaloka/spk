@@ -17,6 +17,7 @@ class KriteriaController extends Controller
     }
     public function store(){
         $kriteria = new Kriteria();
+        $kriteria->kode = request('kode');
         $kriteria->nama = request('nama');
         $kriteria->bobot = request('bobot');
         $kriteria->save();

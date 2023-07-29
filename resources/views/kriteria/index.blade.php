@@ -21,6 +21,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Kode</th>
                             <th>Nama</th>
                             <th>Bobot</th>
                             <th>Aksi</th>
@@ -35,6 +36,7 @@
                         @foreach ($kriteria as $item)
                             <tr>
                                 <td width="1"> {{ $no++ }}</td>
+                                <td>{{ $item->kode }}</td>
                                 <td>{{ $item->nama }}</td>
                                 <td>{{ $item->bobot }}</td>
                                 <td></td>
