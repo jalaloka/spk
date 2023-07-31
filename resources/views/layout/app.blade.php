@@ -59,6 +59,11 @@
                                     <i class="mdi mdi-book-plus"></i>Sub Kriteria
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('data-training') }}">
+                                    <i class="mdi mdi-book-plus"></i>Data Training
+                                </a>
+                            </li>
                             {{-- <li class="nav-item dropdown mega-dropdown">
                                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
