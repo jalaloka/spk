@@ -38,11 +38,11 @@
 
                     <div class="collapse navbar-collapse" id="topnav-menu-content">
                         <ul class="navbar-nav">
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" href="index.html">
                                     <i class="mdi mdi-storefront mr-2"></i>Dashboard
                                 </a>
-                            </li>
+                            </li> --}}
 
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('daftar-tenaga-honor') }}">

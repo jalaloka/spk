@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DaftarTenagaHonorController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\PenggunaController;
@@ -18,21 +19,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layout.app');
+    return view('auth.login');
 });
 
-Route::get('/pengguna', [PenggunaController::class, 'index']);
-Route::get('/daftar-tenaga-honor', [DaftarTenagaHonorController::class, 'index']);
-Route::get('/daftar-tenaga-honor/create', [DaftarTenagaHonorController::class, 'create']);
-Route::post('/daftar-tenaga-honor', [DaftarTenagaHonorController::class, 'store']);
-Route::get('/daftar-tenaga-honor/{pegawai}', [DaftarTenagaHonorController::class, 'show']);
+Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/logout', [AuthController::class, 'logout']);
 
-Route::get('/kriteria', [KriteriaController::class, 'index']);
-Route::get('/kriteria/create', [KriteriaController::class, 'create']);
-Route::post('/kriteria', [KriteriaController::class, 'store']);
-Route::get('/kriteria/{kriteria}', [KriteriaController::class, 'show']);
+Route::middleware('auth')->group(function () {
+    Route::get('/pengguna', [PenggunaController::class, 'index']);
+    Route::get('/daftar-tenaga-honor', [DaftarTenagaHonorController::class, 'index']);
+    Route::get('/daftar-tenaga-honor/create', [DaftarTenagaHonorController::class, 'create']);
+    Route::post('/daftar-tenaga-honor', [DaftarTenagaHonorController::class, 'store']);
+    Route::get('/daftar-tenaga-honor/{pegawai}', [DaftarTenagaHonorController::class, 'show']);
 
-Route::get('/subkriteria', [SubkriteriaController::class, 'index']);
-Route::get('/subkriteria/create', [SubkriteriaController::class, 'create']);
-Route::post('/subkriteria', [SubkriteriaController::class, 'store']);
-Route::get('/subkriteria/{subkriteria}', [SubkriteriaController::class, 'show']);
+    Route::get('/kriteria', [KriteriaController::class, 'index']);
+    Route::get('/kriteria/create', [KriteriaController::class, 'create']);
+    Route::post('/kriteria', [KriteriaController::class, 'store']);
+    Route::get('/kriteria/{kriteria}', [KriteriaController::class, 'show']);
+
+    Route::get('/subkriteria', [SubkriteriaController::class, 'index']);
+    Route::get('/subkriteria/create', [SubkriteriaController::class, 'create']);
+    Route::post('/subkriteria', [SubkriteriaController::class, 'store']);
+    Route::get('/subkriteria/{subkriteria}', [SubkriteriaController::class, 'show']);
+});
