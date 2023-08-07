@@ -50,18 +50,23 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('kriteria') }}">
-                                    <i class="mdi mdi-book"></i>Kriteria
+                                <a class="nav-link" href="{{ url('komponen') }}">
+                                    <i class="mdi mdi-book"></i>Komponen
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('subkriteria') }}">
-                                    <i class="mdi mdi-book-plus"></i>Sub Kriteria
+                                <a class="nav-link" href="{{ url('aturan') }}">
+                                    <i class="mdi mdi-book-plus"></i>Aturan
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('data-training') }}">
-                                    <i class="mdi mdi-book-plus"></i>Data Training
+                                <a class="nav-link" href="{{ url('seleksi') }}">
+                                    <i class="mdi mdi-book-plus"></i>Seleksi
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('hasil_seleksi') }}">
+                                    <i class="mdi mdi-book-plus"></i>Hasil Seleksi
                                 </a>
                             </li>
                             {{-- <li class="nav-item dropdown mega-dropdown">

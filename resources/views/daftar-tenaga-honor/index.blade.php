@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h4 class="header-title">Data Tenaga Honorer</h4>
+                    <h4 class="header-title">Data Pergawai</h4>
                     <a href="{{ url('daftar-tenaga-honor/create') }}" class="float-right btn btn-dark"> <i
                             class="fas fa-plus"></i> Tambah Data</a>
 
