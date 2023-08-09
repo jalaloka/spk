@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DaftarTenagaHonorController;
+use App\Http\Controllers\KomponenController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\SeleksiController;
 use App\Http\Controllers\SubkriteriaController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,4 +44,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/subkriteria/create', [SubkriteriaController::class, 'create']);
     Route::post('/subkriteria', [SubkriteriaController::class, 'store']);
     Route::get('/subkriteria/{subkriteria}', [SubkriteriaController::class, 'show']);
+
+    Route::get('/komponen', [KomponenController::class, 'index']);
+    Route::post('/komponen', [KomponenController::class, 'store']);
+
+    Route::get('/seleksi', [SeleksiController::class, 'index']);
 });
+
