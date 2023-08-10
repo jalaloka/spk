@@ -16,7 +16,7 @@ class Pegawai extends Model
             $item->id = (string)Str::orderedUuid();
         });
     }
-
-
+    
     protected $table = 'pegawai';
+    
 }

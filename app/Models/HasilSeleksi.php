@@ -9,4 +9,9 @@ class HasilSeleksi extends Model
 {
     use HasFactory;
     protected $table = 'hasil';
+    
+    public function pegawai()
+{
+    return $this->belongsTo(Pegawai::class, 'id_pegawai');
+}
 }
