@@ -19,8 +19,10 @@
     <!-- App Css-->
     <link href="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/css/app.min.css" rel="stylesheet"
         type="text/css" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @stack('style')
+
 
 </head>
 
@@ -284,7 +286,7 @@
                 <div class="container-fluid">
 
                     <!-- start page title -->
-@yield('content')
+                    @yield('content')
                     <!-- end page title -->
 
                 </div> <!-- container-fluid -->
@@ -647,13 +649,14 @@
 
     <!-- JAVASCRIPT -->
     <script src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/jquery/jquery.min.js"></script>
-    <script src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/bootstrap/js/bootstrap.bundle.min.js">
+    </script>
     <script src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/metismenu/metisMenu.min.js"></script>
     <script src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/simplebar/simplebar.min.js"></script>
     <script src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/node-waves/waves.min.js"></script>
 
     <script src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/js/app.js"></script>
-@stack('scripts')
+    @stack('scripts')
 </body>
 
 </html>

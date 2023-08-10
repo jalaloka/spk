@@ -4,45 +4,92 @@
     <div class="row justify-content-center">
         <div class="col-7">
             <div class="card">
-                <div class="card-body">
-                    <h4 class="header-title">Data Komponen 1</h4>
-                    <form action="{{ url('daftar-tenaga-honor') }}" method="post">
-                        @csrf
+                <form action="{{ url('seleksi') }}" method="post">
+                    @csrf
+                    <div class="card-body">
+                        <h4 class="header-title">Sleksi Pegawai</h4>
 
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="" class="control-label">Nama</label>
-                                    <input type="text" name="nik" class="form-control">
+                                    <label for="pegawai" class="control-label">Nama Pegawai</label>
+                                    <select name="pegawai" id="pegawai" class="form-control">
+                                        <option value="">Pilih Nama Pegawai</option>
+                                        @foreach ($pegawaiList as $pegawai)
+                                            <option value="{{ $pegawai->id }}">{{ $pegawai->nama }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-9">
-                                
                                 <div class="form-group">
-                                    <label for="" class="control-label">Komponen 1</label>
-                                    <input type="text" name="nama" class="form-control">
+                                    <label for="komponen1" class="control-label">Komponen 1</label>
+                                    <input type="text" id="komponen1" class="form-control" value="Prestasi Kerja"
+                                        readonly>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="" class="control-label">Keteria</label>
-                                    <input type="text" name="nama" class="form-control">
+                                    <label for="kriteria" class="control-label">Kriteria</label>
+                                    <select name="kriteria" id="kriteria" class="form-control">
+                                        <option value="">Pilih Kriteria</option>
+                                        @foreach ($kriterialist as $kriteria)
+                                            <option value="{{ $kriteria->id }}">{{ $kriteria->nama }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
-                    </form>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <button class="float-right btn btn-primary">Simpan</button>
                     </div>
-                </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="float-right btn btn-primary" id="btnSimpan">Simpan</button>
+                        </div>
+                    </div>
                 </form>
             </div>
-
         </div>
-    </div> <!-- end col -->
-    </div> <!-- end row -->
+    </div>
+
+    <!-- Tambahkan kode JavaScript untuk menampilkan hasil pilihan ke dalam popup -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("btnSimpan").addEventListener("click", function(event) {
+                event.preventDefault();
+
+                var selectedPegawaiId = document.getElementById("pegawai").value;
+                var selectedKriteriaId = document.getElementById("kriteria").value;
+
+                var selectedPegawai = document.getElementById("pegawai").options[document.getElementById(
+                    "pegawai").selectedIndex].text;
+                var selectedKriteria = document.getElementById("kriteria").options[document.getElementById(
+                    "kriteria").selectedIndex].text;
+
+                var popupMessage = "Anda telah memilih:\n\nNama Pegawai: " + selectedPegawai +
+                    "\nKriteria K1: " + selectedKriteria;
+                alert(popupMessage);
+
+                // Simpan data ke database dengan menggunakan AJAX
+                var formData = new FormData();
+                formData.append("pegawai_id", selectedPegawaiId);
+                formData.append("kriteria_id", selectedKriteriaId);
+
+                fetch("{{ route('seleksi') }}", {
+                        method: "POST",
+                        body: formData,
+                        headers: {
+                            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]')
+                                .getAttribute('content')
+                        }
+                    })
+                    .then(response => response.json())
+                    .catch(error => {
+                        // Handle errors
+                        console.error(error);
+                    });
+            });
+        });
+    </script>
 @endsection
 
 

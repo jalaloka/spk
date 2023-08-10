@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/pengguna', [PenggunaController::class, 'index']);
     Route::get('/daftar-tenaga-honor', [DaftarTenagaHonorController::class, 'index']);
     Route::get('/daftar-tenaga-honor/create', [DaftarTenagaHonorController::class, 'create']);
-    Route::post('/daftar-tenaga-honor', [DaftarTenagaHonorController::class, 'store']);
+    Route::post('daftar-tenaga-honor', [DaftarTenagaHonorController::class, 'store'])->name('daftar-tenaga-honor');
     Route::get('/daftar-tenaga-honor/{pegawai}', [DaftarTenagaHonorController::class, 'show']);
 
     Route::get('/kriteria', [KriteriaController::class, 'index']);
@@ -49,5 +49,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/komponen', [KomponenController::class, 'store']);
 
     Route::get('/seleksi', [SeleksiController::class, 'index']);
+    Route::post('seleksi', [SeleksiController::class, 'store'])->name('seleksi');
+    Route::get('/hasil_seleksi', [SeleksiController::class, 'index2'])->name('hasil_seleksi');
+
 });
 
