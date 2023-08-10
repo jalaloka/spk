@@ -35,7 +35,7 @@
             </form>
         </div>
 
-        <div class="d-flex">
+        {{-- <div class="d-flex">
 
             <div class="dropdown d-inline-block d-lg-none ml-2">
                 <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
@@ -204,6 +204,6 @@
                     <a class="dropdown-item" href="{{ url('logout') }}"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> Logout</a>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </header>
