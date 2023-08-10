@@ -24,12 +24,32 @@
                             <tr>
                                 <td width="1">{{ $no++ }}</td>
                                 <td>K1</td>
-                                <td>Kontol</td>
+                                <td>Prestasi Kerja</td>
                             </tr>
                             <tr>
                                 <td width="1">{{ $no++ }}</td>
-                                <td>K1</td>
-                                <td>Kontol</td>
+                                <td>K2</td>
+                                <td>Kedisiplinan</td>
+                            </tr>
+                            <tr>
+                                <td width="1">{{ $no++ }}</td>
+                                <td>K3</td>
+                                <td>Kehadiran</td>
+                            </tr>
+                            <tr>
+                                <td width="1">{{ $no++ }}</td>
+                                <td>K4</td>
+                                <td>Tanggung Jawab</td>
+                            </tr>
+                            <tr>
+                                <td width="1">{{ $no++ }}</td>
+                                <td>K5</td>
+                                <td>Kejujuran</td>
+                            </tr>
+                            <tr>
+                                <td width="1">{{ $no++ }}</td>
+                                <td>K6</td>
+                                <td>Kerjasama</td>
                             </tr>
                             <!-- Tambahkan baris-baris data lainnya sesuai kebutuhan -->
                         </tbody>
