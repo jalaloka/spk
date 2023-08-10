@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Agu 2023 pada 09.27
+-- Waktu pembuatan: 10 Agu 2023 pada 15.20
 -- Versi server: 10.4.25-MariaDB
 -- Versi PHP: 8.1.10
 
@@ -76,14 +76,8 @@ CREATE TABLE `hasil` (
 --
 
 INSERT INTO `hasil` (`id`, `id_pegawai`, `nama`, `k1`, `k2`, `k3`, `k4`, `k5`, `k6`, `created_at`, `updated_at`) VALUES
-(1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-08-10 00:12:10', '2023-08-10 00:12:10'),
-(2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-08-10 00:13:05', '2023-08-10 00:13:05'),
-(3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-08-10 00:16:42', '2023-08-10 00:16:42'),
-(4, NULL, '99b0b0f4-075e-4f19-9ad5-848cbc05269f', '1', NULL, NULL, NULL, NULL, NULL, '2023-08-10 00:19:25', '2023-08-10 00:19:25'),
-(5, NULL, '99b0b0f4-075e-4f19-9ad5-848cbc05269f', '1', NULL, NULL, NULL, NULL, NULL, '2023-08-10 00:19:29', '2023-08-10 00:19:29'),
-(6, NULL, '99b0b0f4-075e-4f19-9ad5-848cbc05269f', '1', NULL, NULL, NULL, NULL, NULL, '2023-08-10 00:20:22', '2023-08-10 00:20:22'),
-(7, NULL, '99b0b0f4-075e-4f19-9ad5-848cbc05269f', '1', NULL, NULL, NULL, NULL, NULL, '2023-08-10 00:22:02', '2023-08-10 00:22:02'),
-(8, NULL, '99b0b0f4-075e-4f19-9ad5-848cbc05269f', '1', NULL, NULL, NULL, NULL, NULL, '2023-08-10 00:24:18', '2023-08-10 00:24:18');
+(21, '99b0b0f4-075e-4f19-9ad5-848cbc05269f', NULL, 'Sangat Baik', 'Sangat Baik', 'Sangat Baik', 'Baik', 'cukup', 'Sangat Baik', '2023-08-10 06:08:56', '2023-08-10 06:08:56'),
+(22, '99beb0d7-abd7-4493-8d9b-26efd8380315', NULL, 'kurang', 'kurang', 'kurang', 'kurang', 'kurang', 'kurang', '2023-08-10 06:16:14', '2023-08-10 06:16:14');
 
 -- --------------------------------------------------------
 
@@ -216,9 +210,7 @@ CREATE TABLE `pegawai` (
 
 INSERT INTO `pegawai` (`id`, `nik`, `nama`, `agama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `pendidikan`, `created_at`, `updated_at`) VALUES
 ('99b0b0f4-075e-4f19-9ad5-848cbc05269f', '6111010110020001', 'Jalal Oka Saputra', 'Islam', 'Laki-laki', 'Desa Pampang Harapan, Dusun Pasir Mayang', '2002-10-01', 'Jln. Pasir mayang', 'DIII', '2023-07-20 01:27:00', '2023-07-20 01:27:00'),
-('99beb0d7-abd7-4493-8d9b-26efd8380315', '6111010110021234', 'Zaki', 'Islam', 'Laki-laki', 'Sandai', '2021-09-08', 'Mulia Kerta', 'DIII', '2023-07-27 00:28:17', '2023-07-27 00:28:17'),
-('99dad26d-0446-406d-be52-9b69a94cba4a', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-08-10 00:05:22', '2023-08-10 00:05:22'),
-('99dad330-0544-4026-a54c-98917fc20bad', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-08-10 00:07:30', '2023-08-10 00:07:30');
+('99beb0d7-abd7-4493-8d9b-26efd8380315', '6111010110021234', 'Zaki', 'Islam', 'Laki-laki', 'Sandai', '2021-09-08', 'Mulia Kerta', 'DIII', '2023-07-27 00:28:17', '2023-07-27 00:28:17');
 
 -- --------------------------------------------------------
 
@@ -367,7 +359,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `hasil`
 --
 ALTER TABLE `hasil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT untuk tabel `komponen`
