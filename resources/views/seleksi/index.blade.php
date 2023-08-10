@@ -61,7 +61,7 @@
                             <div class="col-md-9">
                                 <div class="form-group">
                                     <label for="komponen3" class="control-label">Komponen 3</label>
-                                    <input type="text" id="komponen3" class="form-control" value="Kedisiplinan" readonly>
+                                    <input type="text" id="komponen3" class="form-control" value="Kehadiran" readonly>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -79,7 +79,7 @@
                             <div class="col-md-9">
                                 <div class="form-group">
                                     <label for="komponen4" class="control-label">Komponen 4</label>
-                                    <input type="text" id="komponen4" class="form-control" value="Kualitas Kerja"
+                                    <input type="text" id="komponen4" class="form-control" value="Tanggung Jawab"
                                         readonly>
                                 </div>
                             </div>
@@ -99,7 +99,7 @@
                             <div class="col-md-9">
                                 <div class="form-group">
                                     <label for="komponen5" class="control-label">Komponen 5</label>
-                                    <input type="text" id="komponen5" class="form-control" value="Inovasi" readonly>
+                                    <input type="text" id="komponen5" class="form-control" value="Kejujuran" readonly>
                                 </div>
                             </div>
                             <div class="col-md-3">

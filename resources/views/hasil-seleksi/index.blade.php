@@ -3,38 +3,43 @@
 @section('content')
     <div class="row justify-content-center">
         <div class="col-7">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">nama</th>
-                        <th scope="col">k1</th>
-                        <th scope="col">k2</th>
-                        <th scope="col">k3</th>
-                        <th scope="col">k4</th>
-                        <th scope="col">k5</th>
-                        <th scope="col">k6</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @php
-                        $no = 1;
-                    @endphp
-                    @foreach ($hasilSeleksi as $hasil)
-                        <tr>
-                            <td>{{ $no++ }}</td>
-                            <td>{{ $hasil->pegawai->nama }}</td>
-                            <td>{{ $hasil->k1 }}</td>
-                            <td>{{ $hasil->k2 }}</td>
-                            <td>{{ $hasil->k3 }}</td>
-                            <td>{{ $hasil->k4 }}</td>
-                            <td>{{ $hasil->k5 }}</td>
-                            <td>{{ $hasil->k6 }}</td>
-                            <!-- Tambahkan k4, k5, dan seterusnya -->
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+        <div class="card">
+            <div class="card-body">
+                <table id="" class="table table-striped table-bordered dt-responsive nowrap"
+                style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">nama</th>
+                <th scope="col">k1</th>
+                <th scope="col">k2</th>
+                <th scope="col">k3</th>
+                <th scope="col">k4</th>
+                <th scope="col">k5</th>
+                <th scope="col">k6</th>
+            </tr>
+        </thead>
+        <tbody>
+            @php
+                $no = 1;
+            @endphp
+            @foreach ($hasilSeleksi as $hasil)
+                <tr>
+                    <td>{{ $no++ }}</td>
+                    <td>{{ $hasil->pegawai->nama }}</td>
+                    <td>{{ $hasil->k1 }}</td>
+                    <td>{{ $hasil->k2 }}</td>
+                    <td>{{ $hasil->k3 }}</td>
+                    <td>{{ $hasil->k4 }}</td>
+                    <td>{{ $hasil->k5 }}</td>
+                    <td>{{ $hasil->k6 }}</td>
+                    <!-- Tambahkan k4, k5, dan seterusnya -->
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+            </div>
+        </div>
         </div>
     </div>
 @endsection
