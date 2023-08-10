@@ -56,24 +56,24 @@
         document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("btnSimpan").addEventListener("click", function(event) {
                 event.preventDefault();
-
+    
                 var selectedPegawaiId = document.getElementById("pegawai").value;
                 var selectedKriteriaId = document.getElementById("kriteria").value;
-
+    
                 var selectedPegawai = document.getElementById("pegawai").options[document.getElementById(
                     "pegawai").selectedIndex].text;
                 var selectedKriteria = document.getElementById("kriteria").options[document.getElementById(
                     "kriteria").selectedIndex].text;
-
+    
                 var popupMessage = "Anda telah memilih:\n\nNama Pegawai: " + selectedPegawai +
                     "\nKriteria K1: " + selectedKriteria;
                 alert(popupMessage);
-
+    
                 // Simpan data ke database dengan menggunakan AJAX
                 var formData = new FormData();
                 formData.append("pegawai_id", selectedPegawaiId);
                 formData.append("kriteria_id", selectedKriteriaId);
-
+    
                 fetch("{{ route('seleksi') }}", {
                         method: "POST",
                         body: formData,
@@ -87,9 +87,13 @@
                         // Handle errors
                         console.error(error);
                     });
+    
+                // Pengalihan ke halaman hasil_seleksi
+                window.location.href = "{{ route('hasil_seleksi') }}";
             });
         });
     </script>
+    
 @endsection
 
 
