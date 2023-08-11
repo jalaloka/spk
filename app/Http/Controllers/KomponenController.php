@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Komponen;
-use App\Models\Kriteria;
-use App\Models\KriteriaKomponen;
-use Illuminate\Http\Request;
+use App\Models\Kriteriacomponent;
+
 
 class KomponenController extends Controller
 {
     public function index()
     {
-        $data['kriteria'] = Kriteria::all();
+        $data['kriteria'] = Kriteriacomponent::all();
         return view('komponen.index', $data);
     }
 

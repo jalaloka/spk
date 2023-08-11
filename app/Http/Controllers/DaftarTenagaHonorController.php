@@ -15,8 +15,10 @@ class DaftarTenagaHonorController extends Controller
     public function create(){
         return view('daftar-tenaga-honor.create');
     }
-    public function show(){
-        return view('daftar-tenaga-honor.show');
+    public function show(Pegawai $pegawai){
+        return view('daftar-tenaga-honor.show', [
+            'pegawai' => $pegawai
+        ]);
     }
     public function store(){
         $pegawai = new Pegawai();
@@ -33,4 +35,8 @@ class DaftarTenagaHonorController extends Controller
         return redirect('daftar-tenaga-honor')->with('success','berhasil di tambahkan' );
     }
 
+    public function destroy(Pegawai $pegawai){
+        $pegawai->delete();
+        return redirect('/daftar-tenaga-honor')->with('success','Data berhasil dihapus');
+    }
 }

@@ -2,98 +2,76 @@
 
 @section('content')
     <div class="row justify-content-center">
-        <div class="col-7">
-        <div class="card">
-            <div class="card-body">
-                <table id="" class="table table-striped table-bordered dt-responsive nowrap"
-                style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-        <thead>
-            <tr>
-                <th scope="col">No</th>
-                <th scope="col">nama</th>
-                <th scope="col">k1</th>
-                <th scope="col">k2</th>
-                <th scope="col">k3</th>
-                <th scope="col">k4</th>
-                <th scope="col">k5</th>
-                <th scope="col">k6</th>
-            </tr>
-        </thead>
-        <tbody>
-            @php
-                $no = 1;
-            @endphp
-            @foreach ($hasilSeleksi as $hasil)
-                <tr>
-                    <td>{{ $no++ }}</td>
-                    <td>{{ $hasil->pegawai->nama }}</td>
-                    <td>{{ $hasil->k1 }}</td>
-                    <td>{{ $hasil->k2 }}</td>
-                    <td>{{ $hasil->k3 }}</td>
-                    <td>{{ $hasil->k4 }}</td>
-                    <td>{{ $hasil->k5 }}</td>
-                    <td>{{ $hasil->k6 }}</td>
-                    <!-- Tambahkan k4, k5, dan seterusnya -->
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-beteween">
+
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table id="dataTable" class="table table-striped table-bordered dt-responsive nowrap"
+                        style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>nama</th>
+                                @foreach ($headerTable as $header)
+                                    <th>{{ $header->nama }}</th>
+                                @endforeach
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php
+                                $no = 1;
+                            @endphp
+                            @foreach ($hasilSeleksi as $hasil)
+                                <tr>
+                                    <td>{{ $no++ }}</td>
+                                    <td>{{ $hasil->pegawai->nama }}</td>
+                                    <td>{{ $hasil->k1 }}</td>
+                                    <td>{{ $hasil->k2 }}</td>
+                                    <td>{{ $hasil->k3 }}</td>
+                                    <td>{{ $hasil->k4 }}</td>
+                                    <td>{{ $hasil->k5 }}</td>
+                                    <td>{{ $hasil->k6 }}</td>
+                                    <td>
+                                        <a href="#nilai{{ $hasil->id }}" class="btn btn-success" data-toggle="modal">NILAI</a>
+                                    </td>
+
+                                    <!-- Tambahkan k4, k5, dan seterusnya -->
+                                </tr>
+
+                                <!-- Modal -->
+                            <div class="modal fade" id="nilai{{ $hasil->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                    ...
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
         </div>
     </div>
 @endsection
+    <script src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/jquery/jquery.min.js"></script>
+    <script src="{{ url('Datatable') }}/assets/libs/jquery/jquery.min.js"></script>
+ 
 
-
-@push('style')
-    <!-- DataTables -->
-    <link
-        href="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css"
-        rel="stylesheet" type="text/css" />
-    <link
-        href="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css"
-        rel="stylesheet" type="text/css" />
-
-    <!-- Responsive datatable examples -->
-    <link
-        href="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css"
-        rel="stylesheet" type="text/css" />
-@endpush
-
-@push('scripts')
-    <!-- Required datatable js -->
-    <script src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net/js/jquery.dataTables.min.js">
-    </script>
-    <script
-        src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js">
-    </script>
-    <!-- Buttons examples -->
-    <script
-        src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js">
-    </script>
-    <script
-        src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js">
-    </script>
-    <script src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/jszip/jszip.min.js"></script>
-    <script src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/pdfmake/build/pdfmake.min.js"></script>
-    <script src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/pdfmake/build/vfs_fonts.js"></script>
-    <script
-        src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net-buttons/js/buttons.html5.min.js">
-    </script>
-    <script
-        src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net-buttons/js/buttons.print.min.js">
-    </script>
-    <script
-        src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net-buttons/js/buttons.colVis.min.js">
-    </script>
-    <!-- Responsive examples -->
-    <script
-        src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js">
-    </script>
-    <script
-        src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js">
-    </script>
-
-    <!-- Datatable init js -->
-    <script src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/js/pages/datatables.init.js"></script>
-@endpush

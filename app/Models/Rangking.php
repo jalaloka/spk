@@ -5,7 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DatatrainingModel extends Model
+class Rangking extends Model
 {
     use HasFactory;
+
+    protected $table = 'rangking';
+
+
 }

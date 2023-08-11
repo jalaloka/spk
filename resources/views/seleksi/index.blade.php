@@ -147,81 +147,96 @@
     </div>
 
     <!-- Tambahkan kode JavaScript untuk menampilkan hasil pilihan ke dalam popup -->
+    <script src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/jquery/jquery.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById("btnSimpan").addEventListener("click", function(event) {
-                event.preventDefault();
 
-                var selectedPegawaiId = document.getElementById("pegawai").value;
+        $(document).ready(function() {
+            // Ini adalah isi dari inputan
+            var pegawai = $('#pegawai').val();
+            var kriteria1 = $('#kriteria').val();
+            var kriteria2 = $('#kriteria2').val();
+            var kriteria3 = $('#kriteria3').val();
+            var kriteria4 = $('#kriteria4').val();
+            var kriteria5 = $('#kriteria5').val();
+            var kriteria6 = $('#kriteria6').val();
 
-                // Mengambil data dari semua komponen dan kriteria
-                var selectedKriteriaId1 = document.getElementById("kriteria").value;
-                var selectedKriteriaId2 = document.getElementById("kriteria2").value;
-                var selectedKriteriaId3 = document.getElementById("kriteria3").value;
-                var selectedKriteriaId4 = document.getElementById("kriteria4").value;
-                var selectedKriteriaId5 = document.getElementById("kriteria5").value;
-                var selectedKriteriaId6 = document.getElementById("kriteria6").value;
-                // Lanjutkan untuk komponen 4, 5, dan 6
+            cobnsole.log(pegawai);
 
-                var selectedPegawai = document.getElementById("pegawai").options[document.getElementById(
-                    "pegawai").selectedIndex].text;
-                var selectedKriteria1 = document.getElementById("kriteria").options[document.getElementById(
-                    "kriteria").selectedIndex].text;
-                var selectedKriteria2 = document.getElementById("kriteria2").options[document
-                    .getElementById(
-                        "kriteria2").selectedIndex].text;
-                var selectedKriteria3 = document.getElementById("kriteria3").options[document
-                    .getElementById(
-                        "kriteria3").selectedIndex].text;
-                var selectedKriteria4 = document.getElementById("kriteria4").options[document
-                    .getElementById("kriteria4").selectedIndex].text;
-                var selectedKriteria5 = document.getElementById("kriteria5").options[document
-                    .getElementById("kriteria5").selectedIndex].text;
-                var selectedKriteria6 = document.getElementById("kriteria6").options[document
-                    .getElementById("kriteria6").selectedIndex].text;
-                // Lanjutkan untuk komponen 4, 5, dan 6
+        })
+        // document.addEventListener("DOMContentLoaded", function() {
+        //     document.getElementById("btnSimpan").addEventListener("click", function(event) {
+        //         event.preventDefault();
 
-                var popupMessage = "Anda telah memilih:\n\nNama Pegawai: " + selectedPegawai +
-                    "\nKriteria K1: " + selectedKriteria1 +
-                    "\nKriteria K2: " + selectedKriteria2 +
-                    "\nKriteria K3: " + selectedKriteria3 +
-                    "\nKriteria K4: " + selectedKriteria4 +
-                    "\nKriteria K5: " + selectedKriteria5 +
-                    "\nKriteria K6: " + selectedKriteria6;
+        //         var selectedPegawaiId = document.getElementById("pegawai").value;
 
-                var confirmation = confirm(popupMessage +
-                    "\n\nApakah Anda yakin ingin melanjutkan proses penyimpanan?");
-                if (confirmation) {
-                    // Simpan data ke database dengan menggunakan AJAX
-                    var formData = new FormData();
-                    formData.append("pegawai_id", selectedPegawaiId);
-                    formData.append("kriteria_id1", selectedKriteriaId1);
-                    formData.append("kriteria_id2", selectedKriteriaId2);
-                    formData.append("kriteria_id3", selectedKriteriaId3);
-                    formData.append("kriteria_id4", selectedKriteriaId4);
-                    formData.append("kriteria_id5", selectedKriteriaId5);
-                    formData.append("kriteria_id6", selectedKriteriaId6);
+        //         // Mengambil data dari semua komponen dan kriteria
+        //         var selectedKriteriaId1 = document.getElementById("kriteria").value;
+        //         var selectedKriteriaId2 = document.getElementById("kriteria2").value;
+        //         var selectedKriteriaId3 = document.getElementById("kriteria3").value;
+        //         var selectedKriteriaId4 = document.getElementById("kriteria4").value;
+        //         var selectedKriteriaId5 = document.getElementById("kriteria5").value;
+        //         var selectedKriteriaId6 = document.getElementById("kriteria6").value;
+        //         // Lanjutkan untuk komponen 4, 5, dan 6
 
-                    fetch("{{ route('seleksi') }}", {
-                            method: "POST",
-                            body: formData,
-                            headers: {
-                                "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]')
-                                    .getAttribute('content')
-                            }
-                        })
-                        .then(response => response.json())
-                        .catch(error => {
-                            // Handle errors
-                            console.error(error);
-                        });
+        //         var selectedPegawai = document.getElementById("pegawai").options[document.getElementById(
+        //             "pegawai").selectedIndex].text;
+        //         var selectedKriteria1 = document.getElementById("kriteria").options[document.getElementById(
+        //             "kriteria").selectedIndex].text;
+        //         var selectedKriteria2 = document.getElementById("kriteria2").options[document
+        //             .getElementById(
+        //                 "kriteria2").selectedIndex].text;
+        //         var selectedKriteria3 = document.getElementById("kriteria3").options[document
+        //             .getElementById(
+        //                 "kriteria3").selectedIndex].text;
+        //         var selectedKriteria4 = document.getElementById("kriteria4").options[document
+        //             .getElementById("kriteria4").selectedIndex].text;
+        //         var selectedKriteria5 = document.getElementById("kriteria5").options[document
+        //             .getElementById("kriteria5").selectedIndex].text;
+        //         var selectedKriteria6 = document.getElementById("kriteria6").options[document
+        //             .getElementById("kriteria6").selectedIndex].text;
+        //         // Lanjutkan untuk komponen 4, 5, dan 6
 
-                    // Pengalihan ke halaman hasil_seleksi
-                    window.location.href = "{{ route('hasil_seleksi') }}";
-                }
+        //         var popupMessage = "Anda telah memilih:\n\nNama Pegawai: " + selectedPegawai +
+        //             "\nKriteria K1: " + selectedKriteria1 +
+        //             "\nKriteria K2: " + selectedKriteria2 +
+        //             "\nKriteria K3: " + selectedKriteria3 +
+        //             "\nKriteria K4: " + selectedKriteria4 +
+        //             "\nKriteria K5: " + selectedKriteria5 +
+        //             "\nKriteria K6: " + selectedKriteria6;
 
-            });
-        });
+        //         var confirmation = confirm(popupMessage +
+        //             "\n\nApakah Anda yakin ingin melanjutkan proses penyimpanan?");
+        //         if (confirmation) {
+        //             // Simpan data ke database dengan menggunakan AJAX
+        //             var formData = new FormData();
+        //             formData.append("pegawai_id", selectedPegawaiId);
+        //             formData.append("kriteria_id1", selectedKriteriaId1);
+        //             formData.append("kriteria_id2", selectedKriteriaId2);
+        //             formData.append("kriteria_id3", selectedKriteriaId3);
+        //             formData.append("kriteria_id4", selectedKriteriaId4);
+        //             formData.append("kriteria_id5", selectedKriteriaId5);
+        //             formData.append("kriteria_id6", selectedKriteriaId6);
+
+        //             fetch("{{ url('seleksi') }}", {
+        //                     method: "POST",
+        //                     body: formData,
+        //                     headers: {
+        //                         "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]')
+        //                             .getAttribute('content')
+        //                     }
+        //                 })
+        //                 .then(response => response.json())
+        //                 .catch(error => {
+        //                     // Handle errors
+        //                     console.error(error);
+        //                 });
+
+        //             // Pengalihan ke halaman hasil_seleksi
+        //             window.location.href = "{{ url('hasil_seleksi') }}";
+        //         }
+
+        //     });
+        // });
     </script>
 @endsection
 

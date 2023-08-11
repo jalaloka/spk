@@ -3,90 +3,94 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <div class="card">
-                <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
 
-                    <h4 class="header-title">Data Komponen 1</h4>
+                            <h4 class="header-title">Data Komponen 1</h4>
 
-                    <table id="" class="table table-striped table-bordered dt-responsive nowrap"
-                        style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nomor</th>
-                                <th>Komponen</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php
-                                $no = 1;
-                            @endphp
-                            <tr>
-                                <td width="1">{{ $no++ }}</td>
-                                <td>K1</td>
-                                <td>Prestasi Kerja</td>
-                            </tr>
-                            <tr>
-                                <td width="1">{{ $no++ }}</td>
-                                <td>K2</td>
-                                <td>Kedisiplinan</td>
-                            </tr>
-                            <tr>
-                                <td width="1">{{ $no++ }}</td>
-                                <td>K3</td>
-                                <td>Kehadiran</td>
-                            </tr>
-                            <tr>
-                                <td width="1">{{ $no++ }}</td>
-                                <td>K4</td>
-                                <td>Tanggung Jawab</td>
-                            </tr>
-                            <tr>
-                                <td width="1">{{ $no++ }}</td>
-                                <td>K5</td>
-                                <td>Kejujuran</td>
-                            </tr>
-                            <tr>
-                                <td width="1">{{ $no++ }}</td>
-                                <td>K6</td>
-                                <td>Kerjasama</td>
-                            </tr>
-                            <!-- Tambahkan baris-baris data lainnya sesuai kebutuhan -->
-                        </tbody>
-                    </table>
-                </div>
+                            <table id="" class="table table-striped table-bordered dt-responsive nowrap"
+                                style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nomor</th>
+                                        <th>Komponen</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php
+                                        $no = 1;
+                                    @endphp
+                                    <tr>
+                                        <td width="1">{{ $no++ }}</td>
+                                        <td>K1</td>
+                                        <td>Prestasi Kerja</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="1">{{ $no++ }}</td>
+                                        <td>K2</td>
+                                        <td>Kedisiplinan</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="1">{{ $no++ }}</td>
+                                        <td>K3</td>
+                                        <td>Kehadiran</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="1">{{ $no++ }}</td>
+                                        <td>K4</td>
+                                        <td>Tanggung Jawab</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="1">{{ $no++ }}</td>
+                                        <td>K5</td>
+                                        <td>Kejujuran</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="1">{{ $no++ }}</td>
+                                        <td>K6</td>
+                                        <td>Kerjasama</td>
+                                    </tr>
+                                    <!-- Tambahkan baris-baris data lainnya sesuai kebutuhan -->
+                                </tbody>
+                            </table>
+                        </div>
 
-            </div>
-            <div class="card">
-                <div class="card-body">
+                    </div></div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
 
-                    <h4 class="header-title">Data Kriteria</h4>
+                            <h4 class="header-title">Data Kriteria</h4>
 
-                    <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
-                        style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nomor</th>
-                                <th>Komponen</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php
-                                $no = 1;
-                            @endphp
-                            @foreach ($kriteria as $item)
-                                <tr>
-                                    <td width="1">{{ $no++ }}</td>
-                                    <td>{{ $item->status }}</td>
-                                    <td>{{ $item->nama }}</td>
-                                </tr>
-                            @endforeach
-                            <!-- Tambahkan baris-baris data lainnya sesuai kebutuhan -->
-                        </tbody>
-                    </table>
-                </div>
+                            <table class="table table-striped table-bordered dt-responsive nowrap"
+                                style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nomor</th>
+                                        <th>Komponen</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php
+                                        $no = 1;
+                                    @endphp
+                                    @foreach ($kriteria as $item)
+                                        <tr>
+                                            <td width="1">{{ $no++ }}</td>
+                                            <td>{{ $item->status }}</td>
+                                            <td>{{ $item->nama }}</td>
+                                        </tr>
+                                    @endforeach
+                                    <!-- Tambahkan baris-baris data lainnya sesuai kebutuhan -->
+                                </tbody>
+                            </table>
+                        </div>
 
+                    </div></div>
             </div>
         </div> <!-- end col -->
     </div> <!-- end row -->

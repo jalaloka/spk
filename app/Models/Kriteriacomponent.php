@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class Kriteria extends Model
+class Kriteriacomponent extends Model
 {
-    protected $table = 'kriteria';
+    protected $table = 'kriteria_komponen';
 }

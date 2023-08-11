@@ -46,7 +46,7 @@
                                 </a>
                             </li> --}}
 
-                            <li class="nav-item">
+                            <li class="nav-item ">
                                 <a class="nav-link" href="{{ url('daftar-tenaga-honor') }}">
                                     <i class="mdi mdi-account-box-multiple"></i>Daftar Tenaga honor
                                 </a>
