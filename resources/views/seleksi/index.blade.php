@@ -7,7 +7,7 @@
                 <form action="{{ url('seleksi') }}" method="post">
                     @csrf
                     <div class="card-body">
-                        <h4 class="header-title">Sleksi Pegawai</h4>
+                        <h4 class="header-title">Seleksi Pegawai</h4>
 
                         <div class="row">
                             <div class="col-md-12">

@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h4 class="header-title">Data Pergawai</h4>
@@ -30,10 +30,10 @@
                                     <th>Aksi</th>
                                     <th>Nik</th>
                                     <th>Nama</th>
-                                    <th>Agama</th>
+                                    {{-- <th>Agama</th> --}}
                                     <th>Jenis Kelamin</th>
-                                    <th>Tempat Lahir</th>
-                                    <th>Tanggal Lahir</th>
+                                    {{-- <th>Tempat Lahir</th> --}}
+                                    {{-- <th>Tanggal Lahir</th> --}}
                                     <th>Alamat</th>
                                     <th>Pendidikan</th>
                                 </tr>
@@ -59,10 +59,10 @@
                                         </td>
                                         <td>{{ $item->nik }}</td>
                                         <td>{{ $item->nama }}</td>
-                                        <td>{{ $item->agama }}</td>
+                                        {{-- <td>{{ $item->agama }}</td> --}}
                                         <td>{{ $item->jenis_kelamin }}</td>
-                                        <td>{{ $item->tempat_lahir }}</td>
-                                        <td>{{ $item->tanggal_lahir }}</td>
+                                        {{-- <td>{{ $item->tempat_lahir }}</td> --}}
+                                        {{-- <td>{{ $item->tanggal_lahir }}</td> --}}
                                         <td>{{ $item->alamat }}</td>
                                         <td>{{ $item->pendidikan }}</td>
                                     </tr>

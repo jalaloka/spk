@@ -56,11 +56,11 @@
                                     <i class="mdi mdi-book"></i>Komponen
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" href="{{ url('aturan') }}">
                                     <i class="mdi mdi-book-plus"></i>Aturan
                                 </a>
-                            </li>
+                            </li> --}}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('seleksi') }}">
                                     <i class="mdi mdi-book-plus"></i>Seleksi
@@ -69,6 +69,11 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('hasil_seleksi') }}">
                                     <i class="mdi mdi-book-plus"></i>Hasil Seleksi
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('rangking') }}">
+                                    <i class="mdi mdi-book-plus"></i>Rangking
                                 </a>
                             </li>
                             {{-- <li class="nav-item dropdown mega-dropdown">
