@@ -13,126 +13,33 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="pegawai" class="control-label">Nama Pegawai</label>
-                                    <select name="pegawai" id="pegawai" class="form-control">
+                                    <select name="id_pegawai" id="pegawai" class="form-control">
                                         <option value="">Pilih Nama Pegawai</option>
-                                        @foreach ($pegawaiList as $pegawai)
-                                            <option value="{{ $pegawai->id }}">{{ $pegawai->nama }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <label for="komponen1" class="control-label">Komponen 1</label>
-                                    <input type="text" id="komponen1" class="form-control" value="Prestasi Kerja"
-                                        readonly>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="kriteria" class="control-label">Kriteria</label>
-                                    <select name="k1" id="kriteria" class="form-control">
-                                        <option value="">Pilih Kriteria</option>
-                                        @foreach ($kriterialist as $kriteria)
-                                            <option value="{{ $kriteria->nama }}">{{ $kriteria->nama }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <label for="komponen2" class="control-label">Komponen 2</label>
-                                    <input type="text" id="komponen2" class="form-control" value="Kedisiplinan" readonly>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="kriteria2" class="control-label">Kriteria</label>
-                                    <select name="k2" id="kriteria2" class="form-control">
-                                        <option value="">Pilih Kriteria</option>
-                                        @foreach ($kriterialist as $kriteria)
-                                            <option value="{{ $kriteria->nama }}">{{ $kriteria->nama }}</option>
+                                        @foreach ($pegawai as $p)
+                                            <option value="{{ $p->id }}">{{ $p->nama }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
 
-                            <!-- Komponen 3 -->
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <label for="komponen3" class="control-label">Komponen 3</label>
-                                    <input type="text" id="komponen3" class="form-control" value="Kehadiran" readonly>
+                            @foreach ($kriteria as $k)
+                            <input type="hidden" id="id_kriteria" class="form-control" name="kode_kriteria[]" value="{{ $k->kode }}"
+                            readonly>
+                                <div class="col-md-9">
+                                    <label for="komponen1" class="control-label">{{ $k->nama }}</label>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="kriteria3" class="control-label">Kriteria</label>
-                                    <select name="k3" id="kriteria3" class="form-control">
-                                        <option value="">Pilih Kriteria</option>
-                                        @foreach ($kriterialist as $kriteria)
-                                            <option value="{{ $kriteria->nama }}">{{ $kriteria->nama }}</option>
-                                        @endforeach
-                                    </select>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <select name="id_kompopen[]" class="form-control">
+                                            <option value="">Pilih Kriteria</option>
+                                            @foreach ($komponen as $kriteria)
+                                                <option value="{{ $kriteria->nama }}">{{ $kriteria->nama }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- Komponen 4 -->
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <label for="komponen4" class="control-label">Komponen 4</label>
-                                    <input type="text" id="komponen4" class="form-control" value="Tanggung Jawab"
-                                        readonly>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="kriteria4" class="control-label">Kriteria</label>
-                                    <select name="k4" id="kriteria4" class="form-control">
-                                        <option value="">Pilih Kriteria</option>
-                                        @foreach ($kriterialist as $kriteria)
-                                            <option value="{{ $kriteria->nama }}">{{ $kriteria->nama }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
+                            @endforeach
 
-                            <!-- Komponen 5 -->
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <label for="komponen5" class="control-label">Komponen 5</label>
-                                    <input type="text" id="komponen5" class="form-control" value="Kejujuran" readonly>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="kriteria5" class="control-label">Kriteria</label>
-                                    <select name="k5" id="kriteria5" class="form-control">
-                                        <option value="">Pilih Kriteria</option>
-                                        @foreach ($kriterialist as $kriteria)
-                                            <option value="{{ $kriteria->nama }}">{{ $kriteria->nama }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- Komponen 6 -->
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <label for="komponen6" class="control-label">Komponen 6</label>
-                                    <input type="text" id="komponen6" class="form-control" value="Kerjasama"
-                                        readonly>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="kriteria6" class="control-label">Kriteria</label>
-                                    <select name="k6" id="kriteria6" class="form-control">
-                                        <option value="">Pilih Kriteria</option>
-                                        @foreach ($kriterialist as $kriteria)
-                                            <option value="{{ $kriteria->nama }}">{{ $kriteria->nama }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
 
                         </div>
                     </div>
@@ -148,96 +55,7 @@
 
     <!-- Tambahkan kode JavaScript untuk menampilkan hasil pilihan ke dalam popup -->
     <script src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/jquery/jquery.min.js"></script>
-    <script>
 
-        $(document).ready(function() {
-            // Ini adalah isi dari inputan
-            var pegawai = $('#pegawai').val();
-            var kriteria1 = $('#kriteria').val();
-            var kriteria2 = $('#kriteria2').val();
-            var kriteria3 = $('#kriteria3').val();
-            var kriteria4 = $('#kriteria4').val();
-            var kriteria5 = $('#kriteria5').val();
-            var kriteria6 = $('#kriteria6').val();
-
-            cobnsole.log(pegawai);
-
-        })
-        // document.addEventListener("DOMContentLoaded", function() {
-        //     document.getElementById("btnSimpan").addEventListener("click", function(event) {
-        //         event.preventDefault();
-
-        //         var selectedPegawaiId = document.getElementById("pegawai").value;
-
-        //         // Mengambil data dari semua komponen dan kriteria
-        //         var selectedKriteriaId1 = document.getElementById("kriteria").value;
-        //         var selectedKriteriaId2 = document.getElementById("kriteria2").value;
-        //         var selectedKriteriaId3 = document.getElementById("kriteria3").value;
-        //         var selectedKriteriaId4 = document.getElementById("kriteria4").value;
-        //         var selectedKriteriaId5 = document.getElementById("kriteria5").value;
-        //         var selectedKriteriaId6 = document.getElementById("kriteria6").value;
-        //         // Lanjutkan untuk komponen 4, 5, dan 6
-
-        //         var selectedPegawai = document.getElementById("pegawai").options[document.getElementById(
-        //             "pegawai").selectedIndex].text;
-        //         var selectedKriteria1 = document.getElementById("kriteria").options[document.getElementById(
-        //             "kriteria").selectedIndex].text;
-        //         var selectedKriteria2 = document.getElementById("kriteria2").options[document
-        //             .getElementById(
-        //                 "kriteria2").selectedIndex].text;
-        //         var selectedKriteria3 = document.getElementById("kriteria3").options[document
-        //             .getElementById(
-        //                 "kriteria3").selectedIndex].text;
-        //         var selectedKriteria4 = document.getElementById("kriteria4").options[document
-        //             .getElementById("kriteria4").selectedIndex].text;
-        //         var selectedKriteria5 = document.getElementById("kriteria5").options[document
-        //             .getElementById("kriteria5").selectedIndex].text;
-        //         var selectedKriteria6 = document.getElementById("kriteria6").options[document
-        //             .getElementById("kriteria6").selectedIndex].text;
-        //         // Lanjutkan untuk komponen 4, 5, dan 6
-
-        //         var popupMessage = "Anda telah memilih:\n\nNama Pegawai: " + selectedPegawai +
-        //             "\nKriteria K1: " + selectedKriteria1 +
-        //             "\nKriteria K2: " + selectedKriteria2 +
-        //             "\nKriteria K3: " + selectedKriteria3 +
-        //             "\nKriteria K4: " + selectedKriteria4 +
-        //             "\nKriteria K5: " + selectedKriteria5 +
-        //             "\nKriteria K6: " + selectedKriteria6;
-
-        //         var confirmation = confirm(popupMessage +
-        //             "\n\nApakah Anda yakin ingin melanjutkan proses penyimpanan?");
-        //         if (confirmation) {
-        //             // Simpan data ke database dengan menggunakan AJAX
-        //             var formData = new FormData();
-        //             formData.append("pegawai_id", selectedPegawaiId);
-        //             formData.append("kriteria_id1", selectedKriteriaId1);
-        //             formData.append("kriteria_id2", selectedKriteriaId2);
-        //             formData.append("kriteria_id3", selectedKriteriaId3);
-        //             formData.append("kriteria_id4", selectedKriteriaId4);
-        //             formData.append("kriteria_id5", selectedKriteriaId5);
-        //             formData.append("kriteria_id6", selectedKriteriaId6);
-
-        //             fetch("{{ url('seleksi') }}", {
-        //                     method: "POST",
-        //                     body: formData,
-        //                     headers: {
-        //                         "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]')
-        //                             .getAttribute('content')
-        //                     }
-        //                 })
-        //                 .then(response => response.json())
-        //                 .catch(error => {
-        //                     // Handle errors
-        //                     console.error(error);
-        //                 });
-
-        //             // Pengalihan ke halaman hasil_seleksi
-        //             window.location.href = "{{ url('hasil_seleksi') }}";
-        //         }
-
-        //     });
-        // });
-    </script>
 @endsection
 
 

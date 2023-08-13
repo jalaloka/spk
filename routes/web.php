@@ -54,9 +54,9 @@ Route::middleware('auth')->group(function () {
         Route::post('seleksi', 'store');
         Route::get('/hasil_seleksi', 'index2');
         Route::get('/hitungHasil/{pegawai}', 'hitungHasil');
+        Route::get('/hitungHasil/{pegawai}', 'hitungHasil');
+        Route::get('/seleksi/detail/{pegawai}', 'detail');
     });
-
-
 
 
     Route::get('/komponen', [KomponenController::class, 'index']);

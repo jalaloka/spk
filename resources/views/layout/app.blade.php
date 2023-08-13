@@ -71,11 +71,11 @@
                                     <i class="mdi mdi-book-plus"></i>Hasil Seleksi
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" href="{{ url('rangking') }}">
                                     <i class="mdi mdi-book-plus"></i>Rangking
                                 </a>
-                            </li>
+                            </li> --}}
                             {{-- <li class="nav-item dropdown mega-dropdown">
                                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

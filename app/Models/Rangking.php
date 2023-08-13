@@ -11,5 +11,16 @@ class Rangking extends Model
 
     protected $table = 'rangking';
 
+    protected $fillable = [
+        'id_pegawai',
+        'nilai_komponen',
+        'nilai',
+    ];
+
+
+
+    public function pegawai(){
+        return $this->belongsTo(Pegawai::class, 'id_pegawai');
+    }
 
 }

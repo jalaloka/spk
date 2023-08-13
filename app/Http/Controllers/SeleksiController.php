@@ -16,22 +16,27 @@ class SeleksiController extends Controller
 
     public function index()
     {
-        $pegawaiList = Pegawai::all();
-        $kriterialist = Kriteriacomponent::all();
-       
-        return view('seleksi.index', compact('pegawaiList', 'kriterialist'));
+        $data['pegawai'] = Pegawai::all();
+        $data['kriteria'] = Kriteria::all();
+        $data['komponen'] = Kriteriacomponent::all();
+
+        return view('seleksi.index', $data);
     }
 
     public function store(Request $request){
 
-        // Ambil request input;
-        $id_pegawai = $request->pegawai;
-        $k1 = $request->k1;
-        $k2 = $request->k2;
-        $k3 = $request->k3;
-        $k4 = $request->k4;
-        $k5 = $request->k5;
-        $k6 = $request->k6;
+        $id_pegawai = $request->id_pegawai;
+        $kodeKriteria = $request->kode_kriteria;
+        $kodeKomponen = $request->id_kompopen;
+
+
+        for ($i=0; $i < count($kodeKriteria); $i++) {
+            $kriteria[$i] = $kodeKriteria[$i];
+
+        }
+        for ($i=0; $i < count($kodeKomponen); $i++) {
+            $Kom[$i] = $kodeKomponen[$i];
+        }
 
 
 
@@ -40,74 +45,70 @@ class SeleksiController extends Controller
         $nilaiKurang = 0;
         $nilaiSangatBaik = 0;
 
-        //  k1
-        if ($k1 == 'Baik') {
+        // //  k1
+        if ($Kom[0] == 'Baik') {
             $nilaiBaik =  $nilaiBaik + 1;
-        }else if($k1 == 'Cukup'){
+        }else if($Kom[0] == 'Cukup'){
             $nilaiCukup =  $nilaiCukup + 1;
-        }else if($k1 == 'Kurang'){
+        }else if($Kom[0] == 'Kurang'){
             $nilaiKurang =  $nilaiKurang + 1;
-        }else if($k1 == 'Sangat Baik'){
+        }else if($Kom[0] == 'Sangat Baik'){
             $nilaiSangatBaik =  $nilaiSangatBaik + 1;
         }
-
         // k2
-        if ($k2 == 'Baik') {
+        if ($Kom[1] == 'Baik') {
             $nilaiBaik =  $nilaiBaik + 1;
-        }else if($k2 == 'Cukup'){
+        }else if($Kom[1] == 'Cukup'){
             $nilaiCukup =  $nilaiCukup + 1;
-        }else if($k2 == 'Kurang'){
+        }else if($Kom[1] == 'Kurang'){
             $nilaiKurang =  $nilaiKurang + 1;
-        }else if($k2 == 'Sangat Baik'){
+        }else if($Kom[1] == 'Sangat Baik'){
             $nilaiSangatBaik =  $nilaiSangatBaik + 1;
         }
 
         // k3
-        if($k3 == 'Sangat Baik'){
+        if($Kom[2] == 'Sangat Baik'){
             $nilaiSangatBaik =  $nilaiSangatBaik + 1;
-        }else if ($k3 == 'Baik') {
+        }else if ($Kom[2] == 'Baik') {
             $nilaiBaik =  $nilaiBaik + 1;
-        }else if($k3 == 'Cukup'){
+        }else if($Kom[2] == 'Cukup'){
             $nilaiCukup =  $nilaiCukup + 1;
-        }else if($k3 == 'Kurang'){
+        }else if($Kom[2] == 'Kurang'){
             $nilaiKurang =  $nilaiKurang + 1;
         }
 
         // k4
-        if($k4 == 'Sangat Baik'){
+        if($Kom[3] == 'Sangat Baik'){
             $nilaiSangatBaik =  $nilaiSangatBaik + 1;
-        }else if ($k4 == 'Baik') {
+        }else if ($Kom[3] == 'Baik') {
             $nilaiBaik =  $nilaiBaik + 1;
-        }else if($k4 == 'Cukup'){
+        }else if($Kom[3] == 'Cukup'){
             $nilaiCukup =  $nilaiCukup + 1;
-        }else if($k4 == 'Kurang'){
+        }else if($Kom[3] == 'Kurang'){
             $nilaiKurang =  $nilaiKurang + 1;
         }
-
 
         // k5
-        if($k5 == 'Sangat Baik'){
+        if($Kom[4] == 'Sangat Baik'){
             $nilaiSangatBaik =  $nilaiSangatBaik + 1;
-        }else if ($k5 == 'Baik') {
+        }else if ($Kom[4] == 'Baik') {
             $nilaiBaik =  $nilaiBaik + 1;
-        }else if($k5 == 'Cukup'){
+        }else if($Kom[4] == 'Cukup'){
             $nilaiCukup =  $nilaiCukup + 1;
-        }else if($k5 == 'Kurang'){
+        }else if($Kom[4] == 'Kurang'){
             $nilaiKurang =  $nilaiKurang + 1;
         }
 
 
-        if($k6 == 'Sangat Baik'){
+        if($Kom[5] == 'Sangat Baik'){
             $nilaiSangatBaik =  $nilaiSangatBaik + 1;
-        }else if ($k6 == 'Baik') {
+        }else if ($Kom[5] == 'Baik') {
             $nilaiBaik =  $nilaiBaik + 1;
-        }else if($k6 == 'Cukup'){
+        }else if($Kom[5] == 'Cukup'){
             $nilaiCukup =  $nilaiCukup + 1;
-        }else if($k6 == 'Kurang'){
+        }else if($Kom[5] == 'Kurang'){
             $nilaiKurang =  $nilaiKurang + 1;
         }
-
-
 
         $ka1 = Kriteria::sum('bobot');
 
@@ -117,60 +118,77 @@ class SeleksiController extends Controller
         $proBaik =  $nilaiBaik / 6 * $ka1;
         $proSangatBaik =  $nilaiSangatBaik / 6 * $ka1;
 
-        return response()->json([
+        $data = [
             'Input' => $request->all(),
             'Kurang Baik' => round($proKurang,2),
             'Cukup Baik' => round($proCukup,2),
             'Baik' => round($proBaik,2),
             'Sangat Baik' => round($proSangatBaik,2),
-        ]);
+        ];
+
+
+        $hasilKodeKriteria = $data["Input"]["kode_kriteria"];
+        $hasilKodeKomponen = $data["Input"]["id_kompopen"];
 
 
 
-        
-
-        // $rangking = new Rangking;
-        // $rangking->id_pegawai =  $id_pegawai;
-        // $rangking->k1 =  $k1;
-        // $rangking->k2 =  $k2;
-        // $rangking->k3 =  $k3;
-        // $rangking->k4 =  $k4;
-        // $rangking->k5 =  $k5;
-        
- 
 
 
 
-        // $hasil = new HasilSeleksi();
+        // Simpan data penilaian kriteria dan komponen
+        foreach ($hasilKodeKriteria as $key => $kode) {
+            $simpanHasil = HasilSeleksi::create([
+                'id_pegawai' => $id_pegawai,
+                'kode_kriteria' => $kode,
+                'nilai_komponen' =>  $hasilKodeKomponen[$key],
+            ]);
+        }
+
+        // Komponent
+        $rank = new Rangking;
+        $rank->id_pegawai = $id_pegawai;
+        $rank->kurang =  round($proKurang,2);
+        $rank->cukup =  round($proCukup,2);
+        $rank->baik =  round($proBaik,2);
+        $rank->sangat =  round($proSangatBaik,2);
+        $simpanRank = $rank->save();
 
 
-        // $hasil->id_pegawai = $request->input('pegawai');
-        // $hasil->k1 = $request->input('k1');
-        // $hasil->k2 = $request->input('k2');
-        // $hasil->k3 = $request->input('k3');
-        // $hasil->k4 = $request->input('k4');
-        // $hasil->k5 = $request->input('k5');
-        // $hasil->k6 = $request->input('k6');
-        // $simpan = $hasil->save();
+        return redirect('hasil_seleksi')->with('success', 'Berhasil ditambahkan');
 
-        // if ($simpan == 1) {
-        //     return redirect('hasil_seleksi')->with('success', 'Berhasil ditambahkan');
-        // }
 
-        // return back()->with('danger', 'Terjadi kesalahan saat menambakan data !');
     }
 
 
     public function index2()
     {
         $data['headerTable'] = Kriteria::all();
-        $data['hasilSeleksi'] = HasilSeleksi::with('pegawai')->get();
+        $data['hasilSeleksi'] = Rangking::with('pegawai')->get();
+
+        $penilaians = Rangking::with('pegawai')->get();
+        $maxScore = 100;
+    // Hitung perankingan
+    $penilaians->each(function ($penilaian) {
+
+        $ranking = ($penilaian->kurang * 1) + ($penilaian->cukup * 2) + ($penilaian->baik * 3) + ($penilaian->sangat * 4);
+        $percentage = ($ranking / 100) * 100;
+        $penilaian->percentage = $percentage;
+    });
+
+
+    $data['rankingNilai'] = $penilaians->sortByDesc('percentage');
 
         return view('hasil-seleksi.index', $data);
     }
 
-    function hitungHasil($pegawai){
+    function detail($pegawai){
+        $data = HasilSeleksi::where('id_pegawai', $pegawai)->get();
 
-        
+        return response()->json([
+            'code' => 200,
+            'status' => "OK",
+            'data' => $data,
+        ]);
+
     }
 }
