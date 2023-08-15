@@ -24,6 +24,11 @@ class SeleksiController extends Controller
     }
 
     public function store(Request $request){
+        $request->validate([
+            'id_pegawai' => 'required',
+
+
+        ]);
 
         $id_pegawai = $request->id_pegawai;
         $kodeKriteria = $request->kode_kriteria;
@@ -163,9 +168,9 @@ class SeleksiController extends Controller
     public function index2()
     {
         $data['headerTable'] = Kriteria::all();
-        $data['hasilSeleksi'] = Rangking::with('pegawai')->get();
+        $data['hasilSeleksi'] = Rangking::latest()->get();
 
-        $penilaians = Rangking::with('pegawai')->get();
+        $penilaians = Rangking::latest()->get();
         $maxScore = 100;
     // Hitung perankingan
     $penilaians->each(function ($penilaian) {

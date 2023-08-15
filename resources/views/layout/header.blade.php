@@ -12,14 +12,14 @@
                     </span>
                 </a>
 
-                <a href="index.html" class="logo logo-light">
+                {{-- <a href="index.html" class="logo logo-light">
                     <span class="logo-sm">
                         <img src="assets/images/logo-sm-light.png" alt="" height="22">
                     </span>
                     <span class="logo-lg">
                         <img src="assets/images/logo-light.png" alt="" height="19">
                     </span>
-                </a>
+                </a> --}}
             </div>
 
             <button type="button" class="btn btn-sm mr-2 font-size-16 d-lg-none header-item waves-effect waves-light" data-toggle="collapse" data-target="#topnav-menu-content">
@@ -27,12 +27,12 @@
             </button>
 
             <!-- App Search-->
-            <form class="app-search d-none d-lg-block">
+            {{-- <form class="app-search d-none d-lg-block">
                 <div class="position-relative">
                     <input type="text" class="form-control" placeholder="Search...">
                     <span class="mdi mdi-magnify"></span>
                 </div>
-            </form>
+            </form> --}}
         </div>
 
         {{-- <div class="d-flex">

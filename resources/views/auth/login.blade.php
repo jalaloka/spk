@@ -23,9 +23,9 @@
 </head>
 
 <body class="bg-primary bg-pattern">
-    <div class="home-btn d-none d-sm-block">
+    {{-- <div class="home-btn d-none d-sm-block">
         <a href="index.html"><i class="mdi mdi-home-variant h2 text-white"></i></a>
-    </div>
+    </div> --}}
 
     <div class="account-pages my-5 pt-5">
         <div class="container">
@@ -35,7 +35,7 @@
                         {{-- <a href="index.html" class="logo"><img
                                 src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/images/logo-light.png"
                                 height="24" alt="logo"></a> --}}
-                        <h5 class="font-size-16 text-white-50 mb-4">SELAMAT DATANG DI HALAMAN LOGIN</h5>
+                        <h5 class="font-size-16 text-white-50 mb-4">SELAMAT DATANG DI HALAMAN LOGIN SISTEM PENDUKUNG KEPUTUSAN </h5>
                     </div>
                 </div>
             </div>

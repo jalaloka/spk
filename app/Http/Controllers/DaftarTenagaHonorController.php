@@ -20,7 +20,19 @@ class DaftarTenagaHonorController extends Controller
             'pegawai' => $pegawai
         ]);
     }
-    public function store(){
+
+    public function store(Request $request){
+        $request->validate([
+            'nik' => 'required',
+            'nama' => 'required',
+            'agama' => 'required',
+            'jenis_kelamin' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'alamat' => 'required',
+            'pendidikan' => 'required',
+        ]);
+
         $pegawai = new Pegawai();
         $pegawai->nik = request('nik');
         $pegawai->nama = request('nama');
@@ -36,6 +48,18 @@ class DaftarTenagaHonorController extends Controller
     }
 
     public function destroy(Pegawai $pegawai){
+        if ($pegawai->hasilSeleksi) {
+            foreach ($pegawai->hasilSeleksi as $hasil) {
+                $hasil->delete();
+            }
+        }
+
+        if ($pegawai->ranking) {
+            foreach ($pegawai->ranking as $rank) {
+                $rank->delete();
+            }
+        }
+
         $pegawai->delete();
         return redirect('/daftar-tenaga-honor')->with('success','Data berhasil dihapus');
     }

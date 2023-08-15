@@ -13,15 +13,7 @@
                     <div class="card-body">
                         @include('layout.utils.notif')
                         <div class="row">
-
                         </div>
-
-                        {{-- <p class="card-title-desc">The Buttons extension for DataTables
-                            provides a common set of options, API methods and styling to display
-                            buttons on a page that will interact with a DataTable. The core library
-                            provides the based framework upon which plug-ins can built.
-                        </p> --}}
-
                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
                             style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
@@ -30,15 +22,11 @@
                                     <th>Aksi</th>
                                     <th>Nik</th>
                                     <th>Nama</th>
-                                    {{-- <th>Agama</th> --}}
                                     <th>Jenis Kelamin</th>
-                                    {{-- <th>Tempat Lahir</th> --}}
-                                    {{-- <th>Tanggal Lahir</th> --}}
                                     <th>Alamat</th>
                                     <th>Pendidikan</th>
                                 </tr>
                             </thead>
-
 
                             <tbody>
                                 @php
@@ -59,15 +47,11 @@
                                         </td>
                                         <td>{{ $item->nik }}</td>
                                         <td>{{ $item->nama }}</td>
-                                        {{-- <td>{{ $item->agama }}</td> --}}
                                         <td>{{ $item->jenis_kelamin }}</td>
-                                        {{-- <td>{{ $item->tempat_lahir }}</td> --}}
-                                        {{-- <td>{{ $item->tanggal_lahir }}</td> --}}
                                         <td>{{ $item->alamat }}</td>
                                         <td>{{ $item->pendidikan }}</td>
                                     </tr>
                                 @endforeach
-
                             </tbody>
                         </table>
                     </div>

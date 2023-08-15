@@ -16,7 +16,16 @@ class Pegawai extends Model
             $item->id = (string)Str::orderedUuid();
         });
     }
-    
+
     protected $table = 'pegawai';
-    
+
+    public function hasilSeleksi()
+    {
+        return $this->hasMany(hasilSeleksi::class, 'id_pegawai');
+    }
+
+    public function ranking()
+    {
+        return $this->hasMany(Rangking::class, 'id_pegawai');
+    }
 }

@@ -15,7 +15,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nomor</th>
+                                        <th>Kode</th>
                                         <th>Komponen</th>
                                     </tr>
                                 </thead>
@@ -70,7 +70,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nomor</th>
+                                        <th>Kode</th>
                                         <th>Komponen</th>
                                     </tr>
                                 </thead>

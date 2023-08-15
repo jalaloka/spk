@@ -13,7 +13,9 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="pegawai" class="control-label">Nama Pegawai</label>
-                                    <select name="id_pegawai" id="pegawai" class="form-control">
+                                    <select name="id_pegawai" id="pegawai" class="form-control @error('id_pegawai')
+                                    is-invalid
+                                @enderror">
                                         <option value="">Pilih Nama Pegawai</option>
                                         @foreach ($pegawai as $p)
                                             <option value="{{ $p->id }}">{{ $p->nama }}</option>

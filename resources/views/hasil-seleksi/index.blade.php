@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <table id="dataTable" class="table table-striped table-bordered dt-responsive nowrap"
+                    {{-- <table id="dataTable" class="table table-striped table-bordered dt-responsive nowrap"
                         style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                             <tr>
@@ -33,7 +33,7 @@
                                 <th>Kurang</th>
                                 <th>Cukup</th>
                                 <th>Baik</th>
-                                <th>Sangat</th>
+                                <th>Sangat Baik</th>
                                 <th>Action</th>
 
                             </tr>
@@ -83,7 +83,67 @@
                                 </div>
                             @endforeach
                         </tbody>
-                    </table>
+                    </table> --}}
+                    <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
+                            style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama</th>
+                                    <th>Kurang</th>
+                                    <th>Cukup</th>
+                                    <th>Baik</th>
+                                    <th>Sangat Baik</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @php
+                                    $no = 1;
+                                @endphp
+                                @foreach ($hasilSeleksi as $hasil)
+                                <tr>
+                                    <td>{{ $no++ }}</td>
+                                    <td>{{ $hasil->pegawai->nama }}</td>
+                                    <td>{{ $hasil->kurang }}</td>
+                                    <td>{{ $hasil->baik }}</td>
+                                    <td>{{ $hasil->cukup }}</td>
+                                    <td>{{ $hasil->sangat }}</td>
+
+                                    <td>
+                                        <a href="#modalNilai{{ $hasil->pegawai->id }}" id="{{ $hasil->pegawai->id }}" class="btn btn-warning"
+                                            data-toggle="modal">LIHAT</a>
+                                    </td>
+
+                                </tr>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="modalNilai{{ $hasil->pegawai->id }}" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">DETAIL DATA</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body" >
+                                                <div class="listheader">
+                                                    <span class="span-header">KRITERIA</span>
+                                                    <span class="span-header">KOMPONEN</span>
+                                                </div>
+                                                <div class="dataListBody"></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                            </tbody>
+                        </table>
                 </div>
             </div>
         </div>
@@ -109,6 +169,7 @@
                                 <th>Ranking</th>
                                 <th>Pegawai</th>
                                 <td>Nilai</td>
+                                <td>Status Kelulusan</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -117,6 +178,13 @@
                                 <td>{{ $loop->iteration}}</td>
                                 <td>{{ $item->pegawai->nama }}</td>
                                 <td>{{ $item->percentage }}</td>
+                                <td>
+                                    @if ($item->percentage >= 200)
+                                        <span class="badge badge-success">LULUS</span>
+                                    @else
+                                    <span class="badge badge-danger ">TIDAK LULUS</span>
+                                    @endif
+                                </td>
                             </tr>
                             @endforeach
 
@@ -172,3 +240,37 @@
         });
     })
 </script>
+
+@push('style')
+    <!-- DataTables -->
+    <link
+        href="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css"
+        rel="stylesheet" type="text/css" />
+    <link
+        href="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css"
+        rel="stylesheet" type="text/css" />
+
+    <!-- Responsive datatable examples -->
+    <link
+        href="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css"
+        rel="stylesheet" type="text/css" />
+@endpush
+
+@push('scripts')
+    <!-- Required datatable js -->
+    <script src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net/js/jquery.dataTables.min.js">
+    </script>
+    <script
+        src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js">
+    </script>
+    <!-- Responsive examples -->
+    <script
+        src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js">
+    </script>
+    <script
+        src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js">
+    </script>
+
+    <!-- Datatable init js -->
+    <script src="{{ url('Apaxy_v1.1.0/Admin/horizontal/dist') }}/assets/js/pages/datatables.init.js"></script>
+@endpush
